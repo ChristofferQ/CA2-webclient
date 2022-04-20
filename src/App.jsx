@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react"
 import facade from "./apiFacade";
+import Chuck from "./router/Chuck";
+
+
 
 function LogIn({ login }) {
   const init = { username: "", password: "" };
@@ -32,11 +35,19 @@ function LoggedIn() {
 
   return (
     <div>
-      <h2>Data Received from server</h2>
       <h3>{dataFromServer}</h3>
     </div>
   )
 
+}
+
+function Menu(){
+  return(
+    <div>
+    <h1>Book viewing</h1>
+
+  </div>
+  )
 }
 
 function App() {
@@ -59,6 +70,7 @@ function App() {
       {!loggedIn ? (<LogIn login={login} />) :
         (<div>
           <LoggedIn />
+          <Chuck/>
           <button onClick={logout}>Logout</button>
         </div>)}
     </div>
